@@ -1,3 +1,6 @@
+using Team.Notifier.Core;
+using Team.Notifier.DAL;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -6,6 +9,9 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddTransient<ITeamService, TeamService>();
+builder.Services.AddTransient<ITeamRepository, TeamRepository>();
 
 var app = builder.Build();
 
