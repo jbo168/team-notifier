@@ -1,6 +1,5 @@
 ﻿namespace Team.Notifier.DAL;
 
-public interface ITeamRepository
+public interface ITeamRepository : IGenericRepository<Common.Team>
 {
-    Task<IEnumerable<Common.Team>> GetAll();
 }

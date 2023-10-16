@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore;
 using Team.Notifier.Core;
 using Team.Notifier.DAL;
 
@@ -12,6 +13,8 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddTransient<ITeamService, TeamService>();
 builder.Services.AddTransient<ITeamRepository, TeamRepository>();
+builder.Services.AddDbContextPool<TeamNotifierDbContext>(d => 
+    d.UseSqlServer("Server=localhost\\sql2014;Database=TeamNotifier;Trusted_Connection=True;TrustServerCertificate=true;Encrypt=False;"));
 
 var app = builder.Build();
 
